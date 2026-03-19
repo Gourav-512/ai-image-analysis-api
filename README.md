@@ -12,3 +12,5 @@ POST `/predict` → Upload image → Get detections
 
 ## Deployed at
 coming soon
+in 1 week 
+
