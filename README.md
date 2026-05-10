@@ -1,39 +1,29 @@
 # AI Image Analysis API
 
-A fast and simple **FastAPI + YOLOv8** REST API for object detection in images.
+🚀 **FastAPI + YOLOv8** Object Detection API with **bounding box visualization**.
+
+## ✨ Today's Update
+- New: Return image with red bounding boxes drawn (`return_image=true`)
+- Added `/api/health` endpoint
+- Improved documentation
 
 ## Features
-- Object detection using YOLOv8
-- FastAPI with Swagger UI
-- Easy to deploy (Docker ready)
+- Real-time object detection (YOLOv8n)
+- JSON results or annotated image response
+- FastAPI + Swagger UI
+- CORS enabled
+- Docker support
 
-## Installation
-
+## Quick Start
 ```bash
 git clone https://github.com/Gourav-512/ai-image-analysis-api.git
 cd ai-image-analysis-api
 pip install -r requirements.txt
-```
-
-## Running Locally
-
-```bash
 uvicorn app.main:app --reload
 ```
 
-API will be available at `http://127.0.0.1:8000`
+Test the new feature at `/docs` → set `return_image=true`
 
-Docs → `http://127.0.0.1:8000/docs`
+**Contributions & improvements added daily for better learning & portfolio**
 
-## API Usage
-
-**POST** `/api/predict`
-
-Upload an image file.
-
-## Docker
-
-```bash
-docker build -t ai-image-api .
-docker run -p 8000:8000 ai-image-api
-```
+— Gourav Salunkhe
