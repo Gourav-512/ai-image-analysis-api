@@ -1,3 +1,13 @@
-# New Feature: Advanced Image Analysis
+# AI Image Analysis API
 
-Added support for multiple models and improved performance.
+✅ Updated on May 23, 2026
+
+FastAPI + YOLOv8 based object detection API.
+
+## Features
+- Object Detection
+- Bounding Box Visualization
+- Health Check
+
+## Latest Update
+- Minor documentation improvements.
