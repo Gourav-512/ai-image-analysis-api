@@ -19,7 +19,7 @@ model = YOLO("yolov8n.pt")
 
 @app.get("/")
 def read_root():
-    return {"message": "✅ AI Image Analysis API is running"}
+    return {"message": "✅ AI Image Analysis API is running >>"}
 
 @app.get("/health")
 def health():
