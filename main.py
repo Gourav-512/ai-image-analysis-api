@@ -15,6 +15,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 model = YOLO("yolov8n.pt")
 
 
