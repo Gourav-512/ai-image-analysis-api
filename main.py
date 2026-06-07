@@ -17,6 +17,7 @@ app.add_middleware(
 
 model = YOLO("yolov8n.pt")
 
+
 @app.get("/")
 def read_root():
     return {"message": "✅ AI Image Analysis API is running >>"}
@@ -44,6 +45,7 @@ async def predict(file: UploadFile = File(...)):
                     "confidence": round(conf, 4),
                     "bbox": [round(x,2) for x in [x1,y1,x2,y2]]
                 })
+
         
         return {
             "success": True,
