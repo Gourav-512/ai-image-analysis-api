@@ -1,12 +1,23 @@
-from fastapi import FastAPI, File, UploadFile, HTTPException
+import os
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
-from ultralytics import YOLO
-from PIL import Image
-import io
+from config import config
+from logger import setup_logging
+from app.utils.model_manager import model_manager
+from routes_predict import router as predict_router
 
-app = FastAPI(title="AI Image Analysis API")
+# Setup logging
+logger = setup_logging(config.LOG_LEVEL)
 
+# Initialize FastAPI app
+app = FastAPI(
+    title="AI Image Analysis API",
+    description="YOLOv8 Object Detection API with Performance Optimizations",
+    version="1.0.0"
+)
+
+# CORS middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -15,46 +26,32 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Load model on startup
+@app.on_event("startup")
+async def startup_event():
+    """Initialize model on application startup"""
+    logger.info("Loading YOLO model...")
+    model_manager.load_model(config.MODEL_NAME)
+    logger.info(f"Model {config.MODEL_NAME} loaded successfully")
 
-model = YOLO("yolov8n.pt")
+@app.on_event("shutdown")
+async def shutdown_event():
+    """Cleanup on shutdown"""
+    logger.info("Shutting down API")
 
+# Include routers
+app.include_router(predict_router, prefix="/api", tags=["predictions"])
 
 @app.get("/")
-def read_root():
-    return {"message": "✅ AI Image Analysis API is running >>"}
-
-@app.get("/health")
-def health():
-    return {"status": "healthy"}
-
-@app.post("/predict")
-async def predict(file: UploadFile = File(...)):
-    try:
-        contents = await file.read()
-        image = Image.open(io.BytesIO(contents))
-        results = model(image)
-        
-        detections = []
-        for result in results:
-            for box in result.boxes:
-                x1, y1, x2, y2 = box.xyxy[0].tolist()
-                conf = float(box.conf[0])
-                cls = int(box.cls[0])
-                name = result.names[cls]
-                detections.append({
-                    "class": name,
-                    "confidence": round(conf, 4),
-                    "bbox": [round(x,2) for x in [x1,y1,x2,y2]]
-                })
-
-        
-        return {
-            "success": True,
-            "filename": file.filename,
-            "detections": detections
-        }
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+async def root():
+    """Root endpoint"""
+    return {"message": "AI Image Analysis API is running! Visit /docs for API documentation"}
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(
+        app,
+        host=config.HOST,
+        port=config.PORT,
+        workers=config.WORKERS,
+        log_level=config.LOG_LEVEL.lower()
+    )
