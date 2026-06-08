@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-
 class Config:
     """Configuration management for the application"""
     # Model settings
@@ -18,6 +17,7 @@ class Config:
     # Performance settings
     MAX_UPLOAD_SIZE = int(os.getenv("MAX_UPLOAD_SIZE", "104857600"))  # 100MB
     ENABLE_GPU = os.getenv("ENABLE_GPU", "true").lower() == "true"
+
     
     # Cache settings
     ENABLE_MODEL_CACHE = os.getenv("ENABLE_MODEL_CACHE", "true").lower() == "true"
