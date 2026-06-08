@@ -6,6 +6,7 @@ from app.utils.image_processor import ImageProcessor
 from app.utils.result_processor import ResultProcessor
 from app.utils.cache import prediction_cache
 
+
 router = APIRouter()
 
 @router.post("/predict", response_model=PredictionResponse)
