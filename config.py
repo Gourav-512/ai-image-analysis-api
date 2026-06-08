@@ -15,10 +15,12 @@ class Config:
     WORKERS = int(os.getenv("WORKERS", "4"))
     
     # Performance settings
-    MAX_UPLOAD_SIZE = int(os.getenv("MAX_UPLOAD_SIZE", "104857600"))  # 100MB
+    MAX_UPLOAD_SIZE = 
+    int(os.getenv("MAX_UPLOAD_SIZE", "104857600"))  # 100MB
     ENABLE_GPU = os.getenv("ENABLE_GPU", "true").lower() == "true"
-
     
+
+
     # Cache settings
     ENABLE_MODEL_CACHE = os.getenv("ENABLE_MODEL_CACHE", "true").lower() == "true"
     CACHE_PREDICTIONS = os.getenv("CACHE_PREDICTIONS", "false").lower() == "true"
