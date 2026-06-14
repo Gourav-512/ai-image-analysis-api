@@ -2,6 +2,7 @@ import logging
 from datetime import datetime
 import json
 
+
 class JSONFormatter(logging.Formatter):
     """Custom JSON formatter for structured logging"""
     def format(self, record):
