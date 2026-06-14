@@ -18,7 +18,6 @@ class JSONFormatter(logging.Formatter):
             log_data["exception"] = self.formatException(record.exc_info)
         return json.dumps(log_data)
 
-
 def setup_logging(log_level="INFO"):
     """Setup structured logging for the application"""
     logger = logging.getLogger()
