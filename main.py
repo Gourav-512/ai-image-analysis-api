@@ -7,6 +7,7 @@ from logger import setup_logging
 from app.utils.model_manager import model_manager
 from routes_predict import router as predict_router
 
+
 # Setup logging
 logger = setup_logging(config.LOG_LEVEL)
 
