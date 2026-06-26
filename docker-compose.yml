@@ -2,8 +2,6 @@
 Docker Compose configuration for local development
 """
 version: '3.8'
-
-
 services:
   api:
     build: .
