@@ -26,5 +26,5 @@ def test_metrics_tracking():
     """Test metrics collection"""
     from app.utils.metrics import metrics_collector
     initial_requests = metrics_collector.get_metrics()["total_requests"]
-    # Make a request and verify metrics update
+    # Make a request and verify metrics upda
     assert initial_requests >= 0
