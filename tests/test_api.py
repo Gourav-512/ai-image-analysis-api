@@ -4,7 +4,7 @@ from main import app
 
 client = TestClient(app)
 
-def test_health_endpoint()
+def test_health_endpoint():
     """Test health check endpoint"""
     response = client.get("/api/health")
     assert response.status_code == 200
