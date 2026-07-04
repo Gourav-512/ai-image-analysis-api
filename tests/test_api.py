@@ -8,7 +8,7 @@ def test_health_endpoint():
     """Test health check endpoint"""
     response = client.get("/api/health")
     assert response.status_code == 200
-    assert "status" in response.json()
+    assert "status" in response.json(
 
 
 def test_root_endpoint():
