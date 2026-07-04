@@ -13,7 +13,7 @@ def test_health_endpoint():
 
 def test_root_endpoint():
     """Test root endpoint"""
-    response = client.get("")
+    response = client.get("/")
     assert response.status_code == 200
     assert "message" in response.json()
 
