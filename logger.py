@@ -12,7 +12,7 @@ class JSONFormatter(logging.Formatter):
             "message": record.getMessage(),
             "module": record.module,
             "function": record.funcName,
-            "line": record.lineno
+            "line": record.lineno,
         }
         if record.exc_info:
             log_data["exception"] = self.formatException(record.exc_info)
