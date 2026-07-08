@@ -8,7 +8,7 @@ def test_model_manager_initialization():
     
 def test_model_loading():
     """Test model loading"""
-    # This test assumes yolov8n.pt exist
+    # This test assumes yolov8n.pt exists
     try:
         model_manager.load_model("yolov8n.pt")
         assert model_manager.is_loaded()
