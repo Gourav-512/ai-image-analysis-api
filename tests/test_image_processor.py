@@ -17,6 +17,7 @@ def test_image_validation():
     invalid_img = Image.new('RGB', (5, 5))
     assert ImageProcessor.validate_image(invalid_img) == False
 
+
 def test_bytes_conversion():
     """Test image bytes conversion"""
     img = Image.new('RGB', (100, 100))
