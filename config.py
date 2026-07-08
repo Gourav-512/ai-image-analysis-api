@@ -9,7 +9,6 @@ class Config:
     MODEL_NAME = os.getenv("MODEL_NAME", "yolov8n.pt")
     CONFIDENCE_THRESHOLD = float(os.getenv("CONFIDENCE_THRESHOLD", "0.25"))
 
-    
     # Server settings
     HOST = os.getenv("HOST", "0.0.0.0")
     PORT = int(os.getenv("PORT", "8000"))
