@@ -7,7 +7,6 @@ app = FastAPI(
     description="YOLOv8 Object Detection API",
     version="1.0.0"
 )
-
 # CORS
 app.add_middleware(
     CORSMiddleware,
