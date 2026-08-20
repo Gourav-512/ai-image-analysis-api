@@ -26,3 +26,4 @@ def setup_logging(log_level="INFO"):
     handler.setFormatter(JSONFormatter())
     logger.addHandler(handler)
     return logger
+    
