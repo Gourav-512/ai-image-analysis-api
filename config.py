@@ -15,7 +15,7 @@ class Config:
     # Performance settings
     MAX_UPLOAD_SIZE = 
     int(os.getenv("MAX_UPLOAD_SIZE", "104857600"))  # 100MB
-    ENABLE_GPU = os.getenv("ENABLE_GPU", "true").lower() == "true"
+    ENABLE_GPU = os.getenv("ENABLE_GPU", "true").lower() == 
     
     # Cache settings
     ENABLE_MODEL_CACHE = os.getenv("ENABLE_MODEL_CACHE", "true").lower() == "true"
