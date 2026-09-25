@@ -24,4 +24,5 @@ class Config:
     # Logging
     LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
 
-config = Config(
+config = Config()
+
