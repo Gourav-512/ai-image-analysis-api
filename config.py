@@ -22,6 +22,6 @@ class Config:
     CACHE_PREDICTIONS = os.getenv("CACHE_PREDICTIONS", "false").lower() == "true"
     
     # Logging
-    LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO"
+    LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
 
 config = Config()
