@@ -10,7 +10,7 @@ class Config:
     # Server settings
     HOST = os.getenv("HOST", "0.0.0.0")
     PORT = int(os.getenv("PORT", "8000"))
-    WORKERS = int(os.getenv("WORKERS", ""))
+    WORKERS = int(os.getenv("WORKERS", "4"))
     
     # Performance settings
     MAX_UPLOAD_SIZE = 
