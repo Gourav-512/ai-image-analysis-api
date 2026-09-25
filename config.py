@@ -5,7 +5,7 @@ load_dotenv()
 class Config:
     """Configuration management for the application"""
     # Model settings
-    MODEL_NAME = os.getenv("MODEL_NAME", "yolov8n.pt")
+    MODEL_NAME = os.getenv("MODEL_NAME", "yolov8n.pt
     CONFIDENCE_THRESHOLD = float(os.getenv("CONFIDENCE_THRESHOLD", "0.25"))
     # Server settings
     HOST = os.getenv("HOST", "0.0.0.0")
