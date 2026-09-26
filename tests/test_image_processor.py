@@ -5,7 +5,7 @@ import io
 
 def test_image_normalization():
     """Test image normalization"""
-    img = Image.new('RGB', (640,))
+    img = Image.new('RGB', (640, 640))
     normalized = ImageProcessor.normalize_image(img)
     assert normalized.mode == "RGB"
 
