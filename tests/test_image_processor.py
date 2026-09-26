@@ -7,7 +7,7 @@ def test_image_normalization():
     """Test image normalization"""
     img = Image.new('RGB', (640, 640))
     normalized = ImageProcessor.normalize_image(img)
-    assert normalized.mode == 'RGB'
+    assert normalized.mode == 
 
 def test_image_validation():
     """Test image validation"""
